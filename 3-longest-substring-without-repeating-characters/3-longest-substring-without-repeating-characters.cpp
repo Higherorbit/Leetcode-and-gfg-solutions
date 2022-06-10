@@ -11,12 +11,11 @@ public:
             for(int j=i;j<n;j++){
                 if(ss.count(s[j])==0){
                     ss.insert(s[j]);
-                    ans=max(ans,(int)ss.size());
                 }
                 else{
-                    ans=max(ans,(int)ss.size());
                     break;
                 }
+                ans=max(ans,(int)ss.size());
             }
         }
         return ans;
