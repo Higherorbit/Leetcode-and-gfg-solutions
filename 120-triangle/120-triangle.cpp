@@ -21,12 +21,6 @@ public:
                 dp[i][k]=INT_MAX;
             }
         }
-        for(int i=0;i<=n;i++){
-            for(int j=0;j<=n;j++){
-                cout<<dp[i][j]<<" ";
-            }
-            cout<<endl;
-        }
         int ans=INT_MAX;
         for(int j=1;j<=n;j++){
             ans=min(ans,dp[n][j]);
