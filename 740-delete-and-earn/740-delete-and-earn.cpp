@@ -4,7 +4,7 @@ public:
         int m=*max_element(v.begin(),v.end());
         vector<int>dp(m+1,0);
         // memset(dp,0,sizeof(dp));
-        map<int,int> count;
+        unordered_map<int,int> count;
         for(int i=0;i<v.size();i++){
             count[v[i]]++;
         }
