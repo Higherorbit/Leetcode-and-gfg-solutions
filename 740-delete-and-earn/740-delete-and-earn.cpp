@@ -2,8 +2,8 @@ class Solution {
 public:
     int deleteAndEarn(vector<int>& v) {
         int m=*max_element(v.begin(),v.end());
-        int dp[m+1];
-        memset(dp,0,sizeof(dp));
+        vector<int>dp(m+1,0);
+        // memset(dp,0,sizeof(dp));
         unordered_map<int,int> count;
         for(int i=0;i<v.size();i++){
             count[v[i]]++;
