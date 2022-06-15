@@ -27,8 +27,8 @@ public:
             ans.push_back(v[k]);
             k=prev[k];
         }
-        return ans;
-        
+        reverse(ans.begin(),ans.end());
+        return ans;  
         
         
         
