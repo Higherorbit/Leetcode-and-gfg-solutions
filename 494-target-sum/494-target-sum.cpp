@@ -1,22 +1,19 @@
 class Solution {
 public:
-    int cnt=0;
-    int n=0;
-    void solve(vector<int>&v, int s, int i, int t){
-        if(i>n){
-            return ;
-        }
-        if(i==n and t==s){
-            cnt++;
-        }
-        if(i<n)
-        {solve(v,s,i+1,t+v[i]);       
-        solve(v,s,i+1,t-v[i]);}
-
-    }
     int findTargetSumWays(vector<int>& v, int s) {
-        n=v.size();
-        solve(v,s,0,0);
-        return  cnt;
+        int n=v.size();
+        map<int,int>mp;
+        mp[v[0]]++;
+        mp[-v[0]]++;
+        for(int i=1;i<n;i++){
+            auto t=mp;
+            mp.clear();
+            for(auto x:t){
+                mp[x.first+v[i]]+=x.second;
+                mp[x.first-v[i]]+=x.second;
+            }
+        }
+        return mp[s];
+        
     }
 };
