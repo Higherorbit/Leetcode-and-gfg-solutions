@@ -1,7 +1,7 @@
 class Solution {
 public:
     int combinationSum4(vector<int>& v, int sum) {
-            #define int __int128_t
+            #define int unsigned int
         int n=v.size();
         sort(v.begin(),v.end());
         vector<int>dp(sum+1,0);
