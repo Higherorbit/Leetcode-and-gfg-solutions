@@ -18,11 +18,18 @@ public:
         return false;
     }
     bool judgeSquareSum(int c) {
-        for(long long a=0;a*a<=c;a++){
-            if(search(c-a*a)){
-                return true;                
+        for(int i=2;i*i<=c;i++){
+            int cnt=0;
+            if(c%i==0){
+                while(c%i==0){
+                    c/=i;
+                    cnt++;
+                }
+            }
+            if(i%4==3 and cnt%2==1){
+                return false;
             }
         }
-        return false;
+        return c%4!=3;
     }
 };
