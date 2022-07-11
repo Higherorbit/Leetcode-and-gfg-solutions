@@ -2,7 +2,7 @@ class Solution {
 public:
     int countDifferentSubsequenceGCDs(vector<int>& nums) {
         int n=nums.size();
-        vector<bool> present(200001,false);
+        vector<bool>present(200001,false);
         for(int i=0;i<n;i++){
             present[nums[i]]=true;
         }
