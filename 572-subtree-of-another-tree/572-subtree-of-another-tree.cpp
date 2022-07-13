@@ -35,6 +35,7 @@ public:
         if(root->val==subRoot->val){
             if(check(root,subRoot)){
                 ans=true;
+                return ;
             }
         }
         traverse(root->left,subRoot);
