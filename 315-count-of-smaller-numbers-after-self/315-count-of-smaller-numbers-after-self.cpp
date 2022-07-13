@@ -50,14 +50,14 @@ public:
         if(!b){
             return ans;
         }
-        sort(c.begin(),c.end(),greater<int>());
+        sort(c.rbegin(),c.rend());
         for(int i=0;i<n;i++){
             if(c[i]!=v[i]){
                 b=false;
                 break;
             }
         }
-        cout<<b<<endl;
+        // cout<<b<<endl;
         if(b){
             int cnt=0;
             ans[n-1]=0;
