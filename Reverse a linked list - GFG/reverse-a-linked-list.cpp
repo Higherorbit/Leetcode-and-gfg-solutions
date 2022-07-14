@@ -49,8 +49,8 @@ class Solution
             t->next=prev;
             prev=t;
             t=n;
-            
         }
+        return prev;
         head =prev;
         return head;
         
