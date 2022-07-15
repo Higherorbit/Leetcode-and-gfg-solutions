@@ -1,5 +1,5 @@
 # Min sum formed by digits
-## Easy 
+##  Easy 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px"><span style="font-family:arial,helvetica,sans-serif">Given an array of digits (values are from 0 to 9), find the minimum possible sum of two numbers formed from digits of the array. All digits of given array must be used to form the two numbers.</span></span></p>
 
