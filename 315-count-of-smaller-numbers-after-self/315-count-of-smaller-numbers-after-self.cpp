@@ -62,12 +62,13 @@ public:
             int cnt=0;
             ans[n-1]=0;
             int j=n-2;
-            while(j>-1 && v[j]>=v[j+1]){
+            while(j>=0){
                 if(v[j]>v[j+1])
-                ans[j]=n-j-1;
-                if(v[j]==v[j+1]) ans[j]=ans[j+1];
+                    ans[j]=n-j-1;
+                if(v[j]==v[j+1]) 
+                    ans[j]=ans[j+1];
                 j--;
-        }
+            }
             return ans;
         }
         
