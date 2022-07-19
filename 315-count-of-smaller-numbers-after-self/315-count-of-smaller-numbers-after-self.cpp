@@ -13,10 +13,10 @@ struct Node{
 class Solution {
 public:
     int insert(struct Node* node, int key){
-        struct Node* r=NULL,*p;
+        struct Node *r=NULL,*p;
         int c=0;
         while(node){
-            r=node;
+            r=node;  // to know the daddy
             if(node->val>=key){
                 node->lc++;
                 node=node->left;
@@ -27,6 +27,7 @@ public:
             }
         }
         p=new Node(key);
+        // p->lc=c;
         if(r->val>=key){
             r->left=p;
         }
