@@ -9,7 +9,6 @@ public:
             for(int j=1;j<=i-2;j++){
                 temp[j]=f[j-1]+f[j];
             }
-            f.resize(i);
             f=temp;
             ans.push_back(f);
             
