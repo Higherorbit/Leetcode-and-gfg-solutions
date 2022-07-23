@@ -13,53 +13,58 @@ struct Node{
 class Solution {
 public:
     int insert(struct Node* node, int key){
-        struct Node *r=NULL,*p;
-        int c=0;
+        Node* daddy=NULL,* p=NULL;
+        int count=0;
         while(node){
-            r=node;  // to know the daddy
+            daddy=node;  // to know the daddy as we will be going to its child now
             if(node->val>=key){
                 node->lc++;
                 node=node->left;
             }
             else{
-                c+=1+node->lc;
+                count+=1+node->lc;
                 node=node->right;
             }
         }
         p=new Node(key);
-        // p->lc=c;
-        if(r->val>=key){
-            r->left=p;
+        // final checking whether it should be inserted on left or right 
+        if(daddy->val>=key){
+            daddy->left=p;
         }
         else{
-            r->right=p;
+            daddy->right=p;
         }
-        return c;        
+        return count;        
     }
     vector<int> countSmaller(vector<int>& v) {
         int n=v.size();        
         vector<int>ans(n,0);
-        vector<int>c=v;
+        
+        vector<int>c=v; // check vector 
+        
+        //checking if elements are in increasing order
         sort(c.begin(),c.end());
-        bool b=false;
+        bool increasing=true;
         for(int i=0;i<n;i++){
             if(c[i]!=v[i]){
-                b=true;
+                increasing=false;
                 break;
             }
         }
-        if(!b){
+        if(increasing){
             return ans;
         }
+        
+        // checking if elements are in decreasing order
         sort(c.rbegin(),c.rend());
+        bool decreasing=true;
         for(int i=0;i<n;i++){
             if(c[i]!=v[i]){
-                b=false;
+                decreasing=false;
                 break;
             }
         }
-        // cout<<b<<endl;
-        if(b){
+        if(decreasing){
             int cnt=0;
             ans[n-1]=0;
             int j=n-2;
