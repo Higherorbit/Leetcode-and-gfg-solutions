@@ -2,7 +2,7 @@ class Solution {
 public:
     long long countExcellentPairs(vector<int>& nums, int k) {
         long long ans=0;
-        unordered_map<int, long long>mp;
+        map<int, long long>mp;
         for(auto x:unordered_set<int>(begin(nums),end(nums))){
             mp[__builtin_popcount(x)]++;
         }
