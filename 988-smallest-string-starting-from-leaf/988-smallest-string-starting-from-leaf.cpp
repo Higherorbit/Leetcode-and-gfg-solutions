@@ -2,15 +2,16 @@ class Solution {
 public:
     vector<string> v;
     map<int,string>mp;
-    void solve(TreeNode* root, string t){
+    void traverse(TreeNode* root, string t){
         if(root->left==NULL and root->right==NULL){
             v.push_back(t);
+            return ;
         }
         if(root->left){
-            solve(root->left,t+mp[root->left->val]);
+            traverse(root->left,t+mp[root->left->val]);
         }
         if(root->right){
-            solve(root->right, t+mp[root->right->val]);
+            traverse(root->right,t+mp[root->right->val]);
         }
     }
     
@@ -21,7 +22,7 @@ public:
         for(int i=0;i<=25;i++){
             mp[i]='a'+i;
         }
-        solve(root,mp[root->val]);
+        traverse(root,mp[root->val]);
         for(auto &x:v){
             reverse(x.begin(),x.end());
         }
