@@ -1,14 +1,8 @@
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
- */
+class linkedlist{
+    public:
+    TreeNode* head;
+    TreeNode* tail;
+};
 class Solution {
 public:
     vector<int> v;
@@ -36,4 +30,41 @@ public:
             temp=n;
         }
     }
+//     linkedlist traverse(TreeNode* root){
+//         linkedlist l;
+//         if(root->right==NULL and root->left==NULL){
+//             l.head=root;
+//             l.tail=root;
+//         }
+//         else if(root->right==NULL and root->left){
+//             linkedlist ll=traverse(root->left);
+//             ll.tail->right=root;
+//             l.head=ll.head;
+//             l.tail=root;
+//         }
+//         else if(root->right and root->left==NULL){
+//             linkedlist rl=traverse(root->right);
+//             root->right=rl.head;
+//             l.head=root;
+//             l.tail=rl.tail;
+//         }
+//         else{
+//             linkedlist ll=traverse(root->left);
+//             linkedlist rl=traverse(root->right);
+//             ll.tail->right=root;
+//             root->right=rl.head;
+//             l.head=ll.head;
+//             l.tail=rl.tail;
+//         }
+//         return l;
+//     }
+    
+//     void flatten(TreeNode* root) {
+//         if(root==NULL){
+//             return ;
+//         }
+//         auto ans=traverse(root);
+//         root=ans.head;
+//         return ;
+//     }
 };
