@@ -1,11 +1,11 @@
 class Solution {
 public:
     vector<int>color;
-    bool dfs(vector<vector<int>>& graph,int i,int clr){
-        color[i]=clr;
+    bool dfs(vector<vector<int>>& graph,int i){
         for(auto x:graph[i]){
             if(color[x]==0){
-                if(dfs(graph,x,-clr)){
+                color[x]=-color[i];
+                if(dfs(graph,x)){
                     return true;
                 }
             }
@@ -22,7 +22,8 @@ public:
         color.resize(n,0);
         for(int i=0;i<n;i++){
             if(color[i]==0){
-                if(dfs(graph,i,1)){
+                color[i]=1;
+                if(dfs(graph,i)){
                     return false;
                 }
             }
