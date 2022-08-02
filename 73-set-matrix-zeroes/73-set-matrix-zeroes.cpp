@@ -3,8 +3,8 @@ public:
     void setZeroes(vector<vector<int>>& mat) {
         int n=mat.size();
         int m=mat[0].size();
-        set<int>x;
-        set<int>y;
+        unordered_set<int>x;
+        unordered_set<int>y;
         for(int i=0;i<n;i++){
             for(int j=0;j<m;j++){
                 if(mat[i][j]==0){
