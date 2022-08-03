@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int subarraySum(vector<int>& v, int k) {
+    int subarraySum(vector<int>& v, int k){
         int n=v.size();
         unordered_map<int,int>mp;
         int ans=0;
@@ -13,7 +13,6 @@ public:
             }
             mp[sum]++;
         }
-        return ans;
-        
+        return ans;        
     }
 };
