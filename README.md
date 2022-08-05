@@ -1,2 +1,2 @@
 # Leetcode-and-gfg-solutions
-Collection of LeetCode questions to ace the coding interview!
+Collection of some of the LeetCode questions i did till now.
