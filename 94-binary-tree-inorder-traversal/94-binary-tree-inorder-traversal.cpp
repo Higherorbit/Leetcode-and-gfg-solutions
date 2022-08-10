@@ -21,10 +21,13 @@ public:
     vector<int> inorderTraversal(TreeNode* r) {
         if(r==NULL) return{};
         ans.clear();
-        solve(r);
-        // inorderTraversal(r->left);
-        // ans.push_back(r->val);
-        // inorderTraversal(r-> right);
-        return ans;
+        // solve(r);
+        auto a= inorderTraversal(r->left);
+        a.push_back(r->val);
+        auto b=inorderTraversal(r-> right);
+        for(auto &x:b){
+            a.push_back(x);
+        }
+        return a;
     }
 };
