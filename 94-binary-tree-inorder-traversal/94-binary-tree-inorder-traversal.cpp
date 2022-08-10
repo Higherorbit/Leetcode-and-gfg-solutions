@@ -8,9 +8,11 @@
  *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
- */        
+ */       
+
+// 1. First way
 vector<int> ans;
-void solve(TreeNode* r){
+void solve(TreeNode* r){  //O(n)
     if(r==NULL) return;
     solve(r->left);
     ans.push_back(r->val);
@@ -22,12 +24,13 @@ public:
         if(r==NULL) return{};
         ans.clear();
         // solve(r);
-        auto a= inorderTraversal(r->left);
-        a.push_back(r->val);
-        auto b=inorderTraversal(r-> right);
+        // 2. Second way
+        auto a= inorderTraversal(r->left); //O(n1)
+        a.push_back(r->val);               //O(1)
+        auto b=inorderTraversal(r-> right);//(n2)
         for(auto &x:b){
-            a.push_back(x);
+            a.push_back(x);                //O(n2)
         }
-        return a;
+        return a;                          //O(n1+n2=n)
     }
 };
