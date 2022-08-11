@@ -1,6 +1,7 @@
 class Solution {
 public:
     vector<int>parent;
+    vector<int>sz;
     int find(int x){
         if(parent[x]==x){
             return x;
@@ -11,6 +12,7 @@ public:
     int findCircleNum(vector<vector<int>>& v) {
         int n=v.size();
         parent.resize(n+1);
+        sz.resize(n+1,1);
         for(int i=0;i<=n;i++){
             parent[i]=i;
         }
@@ -21,7 +23,11 @@ public:
                     int x=find(i+1);
                     int y=find(j+1);
                     if(x!=y){
+                        if(sz[x]<sz[y]){
+                            swap(x,y);
+                        }
                         parent[x]=y;
+                        sz[x]+=sz[y];
                         ans--;
                     }
                 }
