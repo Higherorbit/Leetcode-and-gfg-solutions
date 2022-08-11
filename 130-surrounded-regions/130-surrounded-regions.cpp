@@ -16,9 +16,6 @@ public:
         dfs(v,i,j-1);
     }
     void solve(vector<vector<char>>& v) {
-        if(v.size()==0){
-            return ;
-        }
         n=v.size();
         m=v[0].size();
         for(int i=0;i<n;i++){
@@ -30,14 +27,15 @@ public:
         }
         for(int i=0;i<n;i++){
             for(int j=0;j<m;j++){
-                if(v[i][j]=='O'){
-                    v[i][j]='X';
-                }
                 if(v[i][j]=='A'){
                     v[i][j]='O';
                 }
+                else{
+                    v[i][j]='X';
+                }
             }
         }
+        
         
     }
 };
