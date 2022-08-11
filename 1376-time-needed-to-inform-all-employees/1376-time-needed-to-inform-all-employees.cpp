@@ -2,12 +2,12 @@ class Solution {
 public:        
     vector<int> adj[100005];
     
-    int dfs(int headID, vector<int>& informTime){
+    int dfs(int managerId,vector<int>&informTime){
         int maxi=0;
-        for(auto i:adj[headID]){
+        for(auto &i:adj[managerId]){
             maxi=max(maxi,dfs(i,informTime));
         }
-        return maxi+informTime[headID];
+        return informTime[managerId]+maxi;
     }
     int numOfMinutes(int n, int headID, vector<int>& manager, vector<int>& informTime){
         for(int i=0;i<n;i++){
