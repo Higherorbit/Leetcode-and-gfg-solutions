@@ -1,36 +1,37 @@
 class Solution {
 public:
     vector<int> largestDivisibleSubset(vector<int>& v) {
-        int n=v.size();
-        
-        vector<int>divCount(n,1);//count of number of divisors ending at i
-        vector<int>prev(n,-1);// to keep the record of prev divisor
-        
         sort(v.begin(),v.end());
-        int max_index=0;
-        for(int i=0;i<n;i++){
-            for(int j=0;j<i;j++){
+        int n=v.size();
+        vector<int>dp(n,1);
+        vector<int>prev(n,-1);
+        int m=0;
+        int ind=0;
+        for(int i=1;i<n;i++){
+            for(int j=i-1;j>=0;j--){
                 if(v[i]%v[j]==0){
-                    if(divCount[i]<divCount[j]+1){
-                        divCount[i]=divCount[j]+1;
+                    if(dp[j]+1>dp[i]){
+                        dp[i]=dp[j]+1;
                         prev[i]=j;
                     }
                 }
             }
-            if(divCount[max_index]<divCount[i]){
-                max_index=i;
+            if(m<dp[i]){
+                m=dp[i];
+                ind=i;
             }
         }
-        int k=max_index;
+        // for(auto &x:prev){
+        //     cout<<x<<" ";
+        // }
+        // cout<<endl;
         vector<int>ans;
-        while(k>=0){
-            ans.push_back(v[k]);
-            k=prev[k];
+        while(prev[ind]!=-1){
+            ans.push_back(v[ind]);
+            ind=prev[ind];
         }
+        ans.push_back(v[ind]);
         reverse(ans.begin(),ans.end());
-        return ans;  
-        
-        
-        
+        return ans;
     }
 };
