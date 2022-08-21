@@ -5,6 +5,7 @@ public:
         int m=mat[0].size();
         unordered_set<int>x;
         unordered_set<int>y;
+        //O(n^2) hai yeh
         for(int i=0;i<n;i++){
             for(int j=0;j<m;j++){
                 if(mat[i][j]==0){
