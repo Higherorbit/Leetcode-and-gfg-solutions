@@ -15,18 +15,12 @@ public:
             }
         }
         for(int i=0;i<n;i++){
-            if(x.count(i)){
+            // if(x.count(i)){
                 for(int j=0;j<m;j++){
-                    mat[i][j]=0;
+                    if(x.count(i) or y.count(j))
+                        mat[i][j]=0;
                 }
-            }
-        }
-        for(int j=0;j<m;j++){
-            if(y.count(j)){
-                for(int i=0;i<n;i++){
-                    mat[i][j]=0;
-                }
-            }
+            // }
         }
         
     }
