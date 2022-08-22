@@ -13,8 +13,11 @@ class Solution {
 public:
     int preIndex=0;
     TreeNode* solve(vector<int>& pr, vector<int>& in,int ins,int ine){
-        if(ins>ine){
+        if(ine<ins){
             return NULL;
+        }
+        if(ins==ine){
+            return new TreeNode(pr[preIndex++]);
         }
         TreeNode* root=new TreeNode(pr[preIndex++]);
         int ind=0;
@@ -34,6 +37,5 @@ public:
         }
         TreeNode* ans=solve(pr,in,0,in.size()-1);
         return ans;
-        
     }
 };
