@@ -6,7 +6,7 @@ public:
         for(auto &x:s)m1[x]++;
         for(auto &x:t)m2[x]++;
         for(auto x:m1){
-            cout<<x.first<<" "<<x.second<<endl;
+            // cout<<x.first<<" "<<x.second<<endl;
             if(m2[x.first]<x.second){
                 return false;
             }
