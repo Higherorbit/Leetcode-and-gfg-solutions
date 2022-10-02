@@ -5,9 +5,6 @@ public:
         vector<vector<int>>dp(n+1,vector<int>(t+1,0));
         for(int j=1;j<=t;j++){
             dp[1][j]=j<=k;
-            // if(j<=k){
-            //     dp[1][j]=1;
-            // }
         }
         for(int i=2;i<=n;i++){
             for(int j=1;j<=t;j++){
