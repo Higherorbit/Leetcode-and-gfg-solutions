@@ -11,7 +11,7 @@
  */
 class Solution {
 public:
-    unordered_set<int>s;
+    set<int>s;
     void traverse(TreeNode* root,int sum){
         if(!root){
             return ;
