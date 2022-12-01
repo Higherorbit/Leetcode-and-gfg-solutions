@@ -26,7 +26,6 @@ public:
                 cnt2++;
             }
         }
-        cout<<cnt1<<" "<<cnt2<<endl;
         return (cnt1==cnt2);
     }
 };
