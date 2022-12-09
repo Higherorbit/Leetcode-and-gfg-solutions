@@ -12,26 +12,21 @@
 class Solution {
 public:
     int ans=INT_MIN;
-    void traverse(TreeNode* root, multiset<int>&s){
+    void traverse(TreeNode* root, int first,int last){
         if(root==NULL){
             return ;
         }
         int bhalue=root->val;
-        int first=*s.begin(), last=*s.rbegin();
         ans=max(ans,max(abs(bhalue-first),abs(bhalue-last)));
-        s.insert(bhalue);
-        traverse(root->left,s);
-        traverse(root->right,s);
-        auto itr = s.find(bhalue);
-        if(itr!=s.end()){
-            s.erase(itr);
-        }
+        first=max(first,root->val);
+        last=min(last,bhalue);
+        traverse(root->left,first,last);
+        traverse(root->right,first,last);
     }
     int maxAncestorDiff(TreeNode* root) {
-        multiset<int>s;
-        s.insert(root->val);
         ans=INT_MIN;
-        traverse(root,s);
+        int curMax=root->val,curMin=root->val;
+        traverse(root,curMax,curMin);
         return ans;
     }
 };
