@@ -3,10 +3,12 @@ public:
     bool check(vector<int>w,int d, int r){
         int cnt=1,t=0;
         for(int i=0;i<w.size();i++){
-            t+=w[i];
-            if(t>r){
-                cnt++;
+            if(t+w[i]<=r){
+                t+=w[i];
+            }
+            else{
                 t=w[i];
+                cnt++;                
             }
         }
         return cnt<=d;
@@ -23,12 +25,9 @@ public:
         }
         int l=m,h=sum;
         int ans=sum+1;
-        // sort(w.begin(),w.end());
         while(l<=h){
             int mid=l+(h-l)/2;
-            // cout<<mid<<endl;
             if(check(w,d,mid)){
-                // cout<<"YEs"<<endl;
                 ans=min(ans,mid);
                 h=mid-1;
             }
