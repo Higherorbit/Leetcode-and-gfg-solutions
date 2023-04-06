@@ -9,7 +9,6 @@ public:
         if(i==0 or j==0 or i>=n-1 or j>=m-1){
             return false;
         }
-        
         grid[i][j]=-1;
         return dfs(grid,i+1,j)&dfs(grid,i,j+1)&dfs(grid,i-1,j)&dfs(grid,i,j-1);
     }
