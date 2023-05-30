@@ -1,5 +1,5 @@
 static int maxi=1000002;
-int arr[10000002];
+int arr[1000002];
 class MyHashSet {
 public:
     MyHashSet() {
