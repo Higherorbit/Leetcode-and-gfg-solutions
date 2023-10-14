@@ -85,7 +85,7 @@ Node* buildTree(string str)
 class Solution
 {
     public:
-    set<int>s;
+    unordered_set<int>s;
     void traverse(Node* root){
         if(!root) return ;
         s.insert(root->data);
