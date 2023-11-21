@@ -1,25 +1,36 @@
 class Solution {
 public:
-    vector<int>parent;
-    int find(int x){
-        if(parent[x]==x){
+    vector<int> par, siz;
+
+    void reset(int n){
+        par.assign(n, 0), siz.assign(n, 1);
+        for(int i = 0; i < n; i++)
+            par[i] = i;
+    }
+
+    int getpar(int x){
+        if(x == par[x])
             return x;
-        }
-        return parent[x]=find(parent[x]);
+        par[x] = getpar(par[x]); // path compression heuristic
+        return par[x];
+    }
+
+    bool merge(int a, int b){
+        a = getpar(a), b = getpar(b);
+        if(a == b) return false;
+        if(siz[a] < siz[b]) // smaller to larger merging heuristic 
+            swap(a, b); 
+        par[b] = a, siz[a] += siz[b];
+        return true;
     }
     int findCircleNum(vector<vector<int>>& v) {
         int n=v.size();
-        parent.resize(n+1);
+        reset(n);
         int ans=n;
-        for(int i=0;i<=n;i++) parent[i]=i;
         for(int i=0;i<n;i++){
             for(int j=i+1;j<n;j++){
                 if(v[i][j]){
-                    int x=find(i+1),y=find(j+1);
-                    if(x!=y){
-                        parent[y]=x;
-                        ans--;
-                    }
+                    if(merge(i,j)) ans--;
                 }
             }
         }
