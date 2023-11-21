@@ -13,7 +13,7 @@ public:
         int ans=n;
         for(int i=0;i<=n;i++) parent[i]=i;
         for(int i=0;i<n;i++){
-            for(int j=0;j<n;j++){
+            for(int j=i+1;j<n;j++){
                 if(v[i][j]){
                     int x=find(i+1),y=find(j+1);
                     if(x!=y){
@@ -24,10 +24,5 @@ public:
             }
         }
         return ans;
-        map<int,int>mp;
-        for(int i=1;i<=n;i++){
-            mp[parent[i]]++;
-        }
-        return mp.size();
     }
 };
