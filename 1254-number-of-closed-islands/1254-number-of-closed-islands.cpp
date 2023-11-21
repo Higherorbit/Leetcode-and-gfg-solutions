@@ -17,8 +17,8 @@ public:
         m=grid[0].size();
         dfs(grid,0,0);
         int ans=0;
-        for(int i=1;i<n-1;i++){
-            for(int j=1;j<m-1;j++){
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
                 if(grid[i][j]==0){
                     if(dfs(grid,i,j)){
                         ans++;
